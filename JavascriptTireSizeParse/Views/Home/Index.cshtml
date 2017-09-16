@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="row">
+    <div style="width:500px;text-align:center;margin-left:auto;margin-right:auto">
+        <input id="TireSizeParse" type="text" />
+    </div>
+    
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        var object = document.getElementById("TireSizeParse");
+        $("#TireSizeParse").TireSizeSearch({
+            ContentousInputName: '1', // Label To Be Displayed
+            SpaceDelimitedName: '2', // Label To Be Displayed
+            NoramlTireSizeName: '3', // Label To Be Displayed
+            ApplyRadio:true, //Initiate Radio Button Placement
+        });
+        object.onkeyup = function () {
+            //tireSize Returns an array of tireSize[0] = width,tireSize[1]= ratio, tireSize[2] = rim
+            var tiresize = $("#TireSizeParse").TireSizeSearch({
+                AppendToDisplay: true,
+              
+            });
+        }
+    });   
+</script>
