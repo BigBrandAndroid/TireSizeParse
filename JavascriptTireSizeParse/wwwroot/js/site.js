@@ -11,7 +11,6 @@
     $.fn.TireSizeSearch = function (options) {
         var that = this;
         var defaults = {
-
             AppendToDisplay: false,
             AppendToClass: "actualTireSizee",
             ContentousInput: true,
@@ -25,7 +24,6 @@
             Width: this[0].value.substring(0, 3),
             Ratio: this[0].value.slice(3, 5),
             Rim: this[0].value.slice(5, 8),
-
             SizeArr: function () {
                 var arr = [];
                 if (that[0].value.indexOf(" ")) {
@@ -66,8 +64,8 @@
             },
 
         };
-        var options = $.extend(defaults, options);
 
+        var options = $.extend(defaults, options);
         options.AppendToDisplay == true ? options.AppendOutPut.apply() : "";
         if (options.ApplyRadio == true) {
             options.PlaceRadioButtons.apply();  
@@ -95,12 +93,10 @@
                 options.SpaceDelimited = false;
             }
         }
-
         function isUndefined(string) {
             var re = string == undefined ? '' : string;
             return re;
         }
-        
         if (options.ContentousInput == true) {
             if (options.AppendToDisplay == true) {
 
@@ -124,6 +120,5 @@
             }
             return options.ManuleSearchFunction.apply();
         }
-
     };
 })(jQuery);
