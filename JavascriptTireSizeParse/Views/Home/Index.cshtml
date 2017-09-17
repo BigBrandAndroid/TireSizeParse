@@ -8,6 +8,10 @@
     <div style="width:500px;text-align:center;margin-left:auto;margin-right:auto">
         <input id="TireSizeParse" type="text" />
     </div>
+
+    <div style="width:500px;text-align:center;margin-left:auto;margin-right:auto;margin-top:50px">
+        <input id="TireSizeParseWithNoButton" type="text" />
+    </div>
     
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -15,7 +19,9 @@
         crossorigin="anonymous"></script>
 <script>
     $(document).ready(function () {
+        
         var object = document.getElementById("TireSizeParse");
+        var object2 = document.getElementById("TireSizeParseWithNoButton");
         $("#TireSizeParse").TireSizeSearch({
             ContentousInputName: '1', // Label To Be Displayed
             SpaceDelimitedName: '2', // Label To Be Displayed
@@ -27,6 +33,13 @@
             var tiresize = $("#TireSizeParse").TireSizeSearch({
                 AppendToDisplay: true,
               
+            });
+        }
+        object2.onkeyup = function () {
+            //tireSize Returns an array of tireSize[0] = width,tireSize[1]= ratio, tireSize[2] = rim
+            var tiresize = $("#TireSizeParseWithNoButton").TireSizeSearch({
+                AppendToDisplay: true,
+                CheckRadio: false,
             });
         }
     });   

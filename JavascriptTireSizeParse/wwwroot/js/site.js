@@ -92,6 +92,20 @@
                 options.ContentousInput = false;
                 options.SpaceDelimited = false;
             }
+        } else {
+            if (that[0].value.indexOf(" ") > -1) {
+                options.NoramlTireSize = true;
+                options.ContentousInput = false;
+                options.SpaceDelimited = true;
+            } else if (that[0].value.indexOf("/") > -1) {
+                options.NoramlTireSize = true;
+                options.ContentousInput = false;
+                options.SpaceDelimited = false;
+            } else {
+                options.NoramlTireSize = false;
+                options.ContentousInput = true;
+                options.SpaceDelimited = false;
+            }
         }
         function isUndefined(string) {
             var re = string == undefined ? '' : string;
@@ -99,24 +113,37 @@
         }
         if (options.ContentousInput == true) {
             if (options.AppendToDisplay == true) {
-
+                if (isUndefined(options.Width) == "") {
+                    document.getElementById(options.AppendToClass).textContent = "";
+                }else{
                 document.getElementById(options.AppendToClass).textContent = isUndefined(options.Width) + '/' +
                     isUndefined(options.Ratio) + 'R' +
-                    isUndefined(options.Rim);
+                        isUndefined(options.Rim);
+                }
             }
+           
             return [options.Width, options.Ratio, options.Rim];
         } else if (options.SpaceDelimited == true) {
             if (options.AppendToDisplay == true) {
+                if (options.SizeArr.apply()[0] == "") {
+                    document.getElementById(options.AppendToClass).textContent = "";
+                } else { 
                 document.getElementById(options.AppendToClass).textContent = isUndefined(options.SizeArr.apply()[0]) + '/' +
                     isUndefined(options.SizeArr.apply()[1]) + 'R' +
-                    isUndefined(options.SizeArr.apply()[2]);
+                        isUndefined(options.SizeArr.apply()[2]);
+                }
             }
+           
             return options.SizeArr.apply();
         } else if (options.NoramlTireSize == true) {
             if (options.AppendToDisplay == true) {
-                document.getElementById(options.AppendToClass).textContent = isUndefined(options.ManuleSearchFunction.apply()[0]) + '/' +
-                    isUndefined(options.ManuleSearchFunction.apply()[1]) + 'R' +
-                    isUndefined(options.ManuleSearchFunction.apply()[2]);
+                if (isUndefined(options.ManuleSearchFunction.apply()[0]) == "") {
+                    document.getElementById(options.AppendToClass).textContent = "";
+                } else {
+                    document.getElementById(options.AppendToClass).textContent = isUndefined(options.ManuleSearchFunction.apply()[0]) + '/' +
+                        isUndefined(options.ManuleSearchFunction.apply()[1]) + 'R' +
+                        isUndefined(options.ManuleSearchFunction.apply()[2]);
+                }
             }
             return options.ManuleSearchFunction.apply();
         }
