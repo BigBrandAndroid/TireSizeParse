@@ -4,15 +4,43 @@
 
 
 
+
+<div style="width:500px;text-align:center;margin-left:auto;margin-right:auto">
+    <h2>
+        <b>Tire Size Parse</b>
+    </h2>
+    Based on your selection you can enter string formats and they will out tire sizes.
+    <ul style="list-style-type:upper-alpha">
+        <li>Selected to enter a number in the form "2055516"</li>
+        <li>Selected to enter a number in the form "20.5 800 10"</li>
+        <li>Selected to enter a number in the form 205/55r16</li>
+    </ul>
+    All three options will return an array of size 3 "index 0=width" "1=ratio" "2=rim"
+
+</div>
+
 <div class="row">
-    <div style="width:500px;text-align:center;margin-left:auto;margin-right:auto">
-        <input id="TireSizeParse" type="text" />
+    <div style="width:600px;text-align:center;margin-left:auto;margin-right:auto">
+        <input style="margin-top:30px" id="TireSizeParse" type="text" />
     </div>
+</div>
+
+<div style="width:600px;text-align:center;margin-left:auto;margin-right:auto;margin-top:50px">
+
+    If you choose not to have a selection the radio botton procedure is automated in this version.
+    <ul style="list-style-type:circle">
+        <li>Enter a number in the form "2055516"</li>
+        <li>Enter a number in the form "20.5 800 10"</li>
+        <li>Enter a number in the form 205/55r16</li>
+    </ul>
+    All three options will return an array of size 3 "index 0=width" "1=ratio" "2=rim"
+</div>
+
+<div class="row">
 
     <div style="width:500px;text-align:center;margin-left:auto;margin-right:auto;margin-top:50px">
         <input id="TireSizeParseWithNoButton" type="text" />
     </div>
-    
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -26,12 +54,14 @@
             ContentousInputName: '1', // Label To Be Displayed
             SpaceDelimitedName: '2', // Label To Be Displayed
             NoramlTireSizeName: '3', // Label To Be Displayed
-            ApplyRadio:true, //Initiate Radio Button Placement
+            ApplyRadio: true, //Initiate Radio Button Placement
+            AppendToClass: "actualTireSizee",
         });
         object.onkeyup = function () {
             //tireSize Returns an array of tireSize[0] = width,tireSize[1]= ratio, tireSize[2] = rim
             var tiresize = $("#TireSizeParse").TireSizeSearch({
                 AppendToDisplay: true,
+                AppendToClass: "actualTireSizee",
               
             });
         }
@@ -40,6 +70,7 @@
             var tiresize = $("#TireSizeParseWithNoButton").TireSizeSearch({
                 AppendToDisplay: true,
                 CheckRadio: false,
+                AppendToClass: "actualTireSizeeWithNoButtons",
             });
         }
     });   
