@@ -12,7 +12,7 @@
         var that = this;
         var defaults = {
             AppendToDisplay: false,
-            AppendToClass: "actualTireSizee",
+            AppendToClass: "",
             ContentousInput: true,
             SpaceDelimited: false,
             NoramlTireSize: false,
@@ -48,7 +48,7 @@
             },
             AppendOutPut: function () {
                 document.getElementById(options.AppendToClass) ? document.getElementById(options.AppendToClass).remove() : '';
-                that.parent().append("<div id='actualTireSizee'></div>");
+                that.parent().append("<div id='" + options.AppendToClass + "'></div>");
                 return null;
             },
             PlaceRadioButtons: function () {
